@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="sleepNight"
+            name="sleepNightVar"
             type="com.example.android.trackmysleepquality.database.SleepNight" />
 
     </data>
@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <ImageView
+            app:sleepQualityImage="@{sleepNightVar}"
             android:contentDescription="@string/sleep_quality_icon"
             android:id="@+id/sleepQualityImage"
             android:layout_width="@dimen/icon_size"
@@ -29,6 +30,7 @@
             app:srcCompat="@drawable/ic_launcher_sleep_tracker_foreground" />
 
         <TextView
+            app:sleepDuration="@{sleepNightVar}"
             tools:text="2 Hours"
             android:id="@+id/sleepTime"
             android:layout_width="0dp"
@@ -40,6 +42,7 @@
             app:layout_constraintTop_toTopOf="@+id/sleepQualityImage" />
 
         <TextView
+            app:sleepQualityText="@{sleepNightVar}"
             tools:text="Excellent"
             android:id="@+id/sleepQualityText"
             android:layout_width="0dp"
