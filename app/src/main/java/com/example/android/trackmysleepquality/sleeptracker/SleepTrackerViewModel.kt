@@ -138,6 +138,13 @@ class SleepTrackerViewModel(
         }
     }
 
+
+    //Navigation for clicks
+    private val _navigateToSleepDataQuality = MutableLiveData<Long>()
+    val navigateToSleepDataQuality
+        get() = _navigateToSleepDataQuality
+
+
     /**
      *  Handling the case of the stopped app or forgotten recording,
      *  the start and end times will be the same.j
@@ -234,5 +241,13 @@ class SleepTrackerViewModel(
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+
+    fun onSleepNightClicked(nightId:Long){
+        _navigateToSleepDataQuality.value=nightId
+    }
+    fun onSleepDataQualityNavigated() {
+        _navigateToSleepDataQuality.value = null
     }
 }
