@@ -23,6 +23,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.android.trackmysleepquality.database.SleepDatabaseDao
 import com.example.android.trackmysleepquality.database.SleepNight
+import com.example.android.trackmysleepquality.database.TestData
 import com.example.android.trackmysleepquality.formatNights
 import kotlinx.coroutines.*
 
@@ -108,6 +109,13 @@ class SleepTrackerViewModel(
      * It will clear the toast request, so if the user rotates their phone it won't show a duplicate
      * toast.
      */
+
+
+    private var _navigateToContacts=MutableLiveData<Boolean>()
+    val navigateToContacts:LiveData<Boolean>
+        get() = _navigateToContacts
+
+
 
     fun doneShowingSnackbar() {
         _showSnackbarEvent.value = false
@@ -250,4 +258,12 @@ class SleepTrackerViewModel(
     fun onSleepDataQualityNavigated() {
         _navigateToSleepDataQuality.value = null
     }
+    fun onContactNavNavigatedDone(){
+        _navigateToContacts.value=false
+    }
+
+    fun onContactNavNavigated(){
+        _navigateToContacts.value=true
+    }
+
 }

@@ -16,6 +16,7 @@
 
 package com.example.android.trackmysleepquality.sleepdetail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,7 +30,7 @@ import kotlinx.coroutines.Job
  *
  * @param sleepNightKey The key of the current night we are working on.
  */
-class SleepDetailViewModel(
+class  SleepDetailViewModel(
         private val sleepNightKey: Long = 0L,
         dataSource: SleepDatabaseDao) : ViewModel() {
 
@@ -53,6 +54,7 @@ class SleepDetailViewModel(
         night.addSource(database.getNightWithId(sleepNightKey), night::setValue)
     }
 
+
     /**
      * Variable that tells the fragment whether it should navigate to [SleepTrackerFragment].
      *
@@ -60,6 +62,7 @@ class SleepDetailViewModel(
      * the [Fragment]
      */
     private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
+
 
     /**
      * When true immediately navigate back to the [SleepTrackerFragment]

@@ -38,6 +38,9 @@
             app:destination="@id/sleep_detail_fragment"
             app:enterAnim="@anim/slide_in_right"
             app:popEnterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_sleep_tracker_fragment_to_contacts_nav"
+            app:destination="@id/contacts_nav" />
     </fragment>
 
     <fragment
@@ -70,4 +73,5 @@
             app:popUpTo="@+id/sleep_tracker_fragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <include app:graph="@navigation/contacts_nav" />
 </navigation>

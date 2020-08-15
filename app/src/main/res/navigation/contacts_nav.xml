@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contacts_nav"
+    app:startDestination="@id/test">
+
+    <fragment
+        android:id="@+id/test"
+        android:name="com.example.android.trackmysleepquality.contacts.Test"
+        android:label="Test" >
+        <action
+            android:id="@+id/action_test_to_addContact"
+            app:destination="@id/addContact" />
+        <action
+            android:id="@+id/action_test_to_viewContact"
+            app:destination="@id/viewContact"
+            app:popUpTo="@id/test" />
+        <action
+            android:id="@+id/action_test_to_contactDetail"
+            app:destination="@id/contactDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewContact"
+        android:name="com.example.android.trackmysleepquality.contacts.ViewContact"
+        android:label="fragment_view_contact"
+        tools:layout="@layout/fragment_view_contact" >
+        <action
+            android:id="@+id/action_viewContact_to_test"
+            app:destination="@id/test"
+            app:popUpTo="@id/test" />
+        <argument
+            android:name="ContactId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContact"
+        android:name="com.example.android.trackmysleepquality.contacts.AddContact"
+        android:label="AddContact" >
+        <action
+            android:id="@+id/action_addContact_to_test"
+            app:popUpTo="@id/test" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetail"
+        android:name="com.example.android.trackmysleepquality.ContactDetail"
+        android:label="ContactDetail" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_contactDetail_to_test"
+            app:popUpTo="@id/test" />
+    </fragment>
+</navigation>
